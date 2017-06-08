@@ -1,11 +1,8 @@
 package com.bones.navdrawertask;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -77,9 +74,9 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             fragment = new HomeFragment();
         } else if (id == R.id.nav_profile) {
-            fragment = new ProfileFragment();
+            fragment = new TransactionFragment();
         } else if (id == R.id.nav_contacts) {
-            fragment = new ContactsFragment();
+            fragment = new SyncFragment();
         }
 
         //Inflate fragment based on clicked item
