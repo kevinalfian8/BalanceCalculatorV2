@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:padding="16dp"
+    tools:context="com.bones.navdrawertask.ContactsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Jln. Pabaki Gg.Pabaki IV no.12 RT.02 RW.03 Kel.Panjunan Kec.Astanaanyar, Bandung"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+</FrameLayout>
