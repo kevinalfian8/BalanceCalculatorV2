@@ -28,11 +28,11 @@ public class HomeFragment extends Fragment {
 
     DBHelper helper;
 
-
     RecyclerView rvIncome,rvOutcome;
-    RecyclerView.Adapter mAdapter;
-
-    RecyclerView.LayoutManager mLayoutManager;
+    IncomeAdapter incomeAdapter;
+    OutcomeAdapter outcomeAdapter;
+    RecyclerView.LayoutManager layoutManager,layoutManager2;
+    List<DatabaseModel> indataList,outdataList;
 
     TextView IncomeTotal,OutcomeTotal,Balance;
 
@@ -43,6 +43,23 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         helper = new DBHelper(getActivity());
+
+        rvOutcome = (RecyclerView) view.findViewById(R.id.rv_expenses);
+        rvIncome = (RecyclerView) view.findViewById(R.id.rv_income);
+
+        indataList = helper.getData("tbl_income");
+        rvIncome.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getActivity());
+        rvIncome.setLayoutManager(layoutManager);
+        incomeAdapter = new IncomeAdapter(indataList);
+        rvIncome.setAdapter(incomeAdapter);
+
+        outdataList = helper.getData("tbl_outcome");
+        rvOutcome.setHasFixedSize(true);
+        layoutManager2 = new LinearLayoutManager(getActivity());
+        rvOutcome.setLayoutManager(layoutManager2);
+        outcomeAdapter = new OutcomeAdapter(outdataList);
+        rvOutcome.setAdapter(outcomeAdapter);
 
 
         IncomeTotal = (TextView) view.findViewById(R.id.txtIncomeTotal);

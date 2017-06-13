@@ -27,17 +27,6 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table tbl_income (id integer primary key autoincrement,title text,amount integer)");
         sqLiteDatabase.execSQL("create table tbl_outcome (id integer primary key autoincrement,title text,amount integer)");
 
-        sqLiteDatabase.execSQL("insert into tbl_income (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_income (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_income (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_income (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_income (title,amount) values ('salary','3500')");
-
-        sqLiteDatabase.execSQL("insert into tbl_outcome (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_outcome (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_outcome (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_outcome (title,amount) values ('salary','3500')");
-        sqLiteDatabase.execSQL("insert into tbl_outcome (title,amount) values ('salary','3500')");
 
 
     }
@@ -92,6 +81,35 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         return total;
+    }
+
+    public List<DatabaseModel> getData(String table) {
+        List<DatabaseModel> modelList = new ArrayList<>();
+        String query = "select * from " + table;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (table.equals("tbl_income")) {
+            while (cursor.moveToNext()) {
+                DatabaseModel dm = new DatabaseModel();
+
+                dm.setIncomeTitle(cursor.getString(cursor.getColumnIndex("title")));
+                dm.setIncomeAmount(cursor.getInt(cursor.getColumnIndex("amount")));
+
+            modelList.add(dm);
+        }
+        } else  {
+            while (cursor.moveToNext()) {
+                DatabaseModel dm = new DatabaseModel();
+
+                    dm.setOutcomeTitle(cursor.getString(cursor.getColumnIndex("title")));
+                    dm.setOutcomeAmount(cursor.getInt(cursor.getColumnIndex("amount")));
+
+                modelList.add(dm);
+            }
+        }
+
+        return modelList;
     }
 
 
