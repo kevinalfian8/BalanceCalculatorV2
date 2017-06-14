@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -6,6 +6,8 @@ package com.bones.navdrawertask;
 
 public class DatabaseModel {
 
+    private int incomeId;
+    private int outcomeId;
     private String incomeTitle;
     private String outcomeTitle;
     private int incomeAmount;
@@ -41,5 +43,22 @@ public class DatabaseModel {
 
     public void setOutcomeAmount(int outcomeAmount) {
         this.outcomeAmount = outcomeAmount;
+    }
+
+
+    public int getIncomeId() {
+        return incomeId;
+    }
+
+    public void setIncomeId(int incomeId) {
+        this.incomeId = incomeId;
+    }
+
+    public int getOutcomeId() {
+        return outcomeId;
+    }
+
+    public void setOutcomeId(int outcomeId) {
+        this.outcomeId = outcomeId;
     }
 }

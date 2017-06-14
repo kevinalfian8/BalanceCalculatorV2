@@ -93,6 +93,7 @@ public class DBHelper extends SQLiteOpenHelper {
             while (cursor.moveToNext()) {
                 DatabaseModel dm = new DatabaseModel();
 
+                dm.setIncomeId(cursor.getInt(cursor.getColumnIndex("id")));
                 dm.setIncomeTitle(cursor.getString(cursor.getColumnIndex("title")));
                 dm.setIncomeAmount(cursor.getInt(cursor.getColumnIndex("amount")));
 
@@ -102,6 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
             while (cursor.moveToNext()) {
                 DatabaseModel dm = new DatabaseModel();
 
+                    dm.setOutcomeId(cursor.getInt(cursor.getColumnIndex("id")));
                     dm.setOutcomeTitle(cursor.getString(cursor.getColumnIndex("title")));
                     dm.setOutcomeAmount(cursor.getInt(cursor.getColumnIndex("amount")));
 
